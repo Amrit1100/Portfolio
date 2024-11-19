@@ -7,4 +7,15 @@
 //     document.querySelector(".chaser").style.transform = `translate(${mouseX}px, ${mouseY}px)`
 // })
    
-    
+let elementOne = document.querySelector(".hoverme")
+
+let intervalOne = setInterval(()=>{
+    elementOne.classList.toggle("show")
+}, 1000)
+
+let elementTwo = document.querySelector(".myimage")
+
+elementTwo.addEventListener("mouseenter", ()=>{
+    elementOne.classList.remove("show")
+    clearInterval(intervalOne)
+})

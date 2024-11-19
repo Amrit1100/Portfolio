@@ -2,7 +2,7 @@
 :root{
     --fontOne : "Open Sans", sans-serif;
     --fontTwo : "Poppins", serif;
-    --colorOne : #f20020;
+    --colorOne : #ea00ff;
 }
 *{
     margin: 0;
@@ -13,14 +13,10 @@
 
 
 body{
-    background-color: black;
+    background-color: #060721;
     width: 100vw;
     overflow-x: hidden;
-}
-
-section{
-    width: 90vw;
-    margin: auto;
+    transition: all 0.2s ease;
 }
 
 
@@ -42,7 +38,9 @@ nav{
     margin: 0px 70px;
     margin-top: 20px;
     margin-bottom: 40px;
-    border-bottom: 1px solid #80808063;
+    border-bottom: 1px solid #808080ad;
+    z-index: 20;
+    position: relative;
 }
 
 .navitems {
@@ -68,39 +66,118 @@ nav{
 }
 
 .containerOne{
-    display: flex;
     width: 100%;
     margin: 61px auto;
-    justify-content: space-around;
+    justify-content: start;
 }
     
-
 .myself{
     font-family: var(--fontOne);
     font-size: 66px;
-    margin-top: 64px;
+    margin-top: 14px;
     max-width: 40%;
+    margin-left: 55px;
     
 }
+
+.myself::before{
+    content: "< >";
+    font-size: 40px;
+    display: block;
+    color: #ffffff4b;
+}
+
+.myself::after{
+    content: "< />";
+    font-size: 40px;
+    display: block;
+    color: #ffffff4b;
+    margin-top: 30px;
+}
+
+
+
 
 .myself span.name{
     color : var(--colorOne);
     font-weight: 600;
 }
 
+.myimage{
+    position: fixed;
+    top: 0px;
+    height: 100vh;
+    overflow-y: hidden;
+    right: 0px;
+    width: 50%;
+    z-index: 10;
+    background-color: black;
+    border-top-left-radius: 50%;
+}
 
+.hoverme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    color: black;
+    font-family: var(--fontOne);
+    font-size: 40px;
+    font-weight: 500;
+    transition: all 0.1s ease-in-out;
+}
+
+.hidden{
+    opacity: 0;
+}
+
+.show{
+    opacity: 1;
+    /* transform: scale(1.3); */
+}
+
+.myimage:hover img{
+    opacity: 0.5;
+}
+.myimage p{
+    position: absolute;
+    bottom: 0px;
+    font-family: var(--fontOne);
+    background-color: rgba(0, 0, 0, 0.686);
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+    transform: translateY(100%);
+    font-size: 20px;
+    line-height: 2;
+    color: rgb(255, 255, 255);
+    height: 50%;
+    box-shadow : -3px -9px 20px 2px #060606c9
+}
+
+
+.myimage:hover p{
+    transform: translateY(0%);
+}
 
 .myimage img{
-    width: 423px;
-    border-radius: 65%;
+    width: 100%;
     box-shadow: 8px 13px 3px #8080;
     cursor: pointer;
+    opacity: 0.8;
+    transition: all 0.2s ease;
+    position: relative;
 }
 
 .buttons{
     display: flex;
     gap: 34px;
-    margin-top: 53px;
+    margin-top: 43px;
 }
 .buttons button{
     
@@ -113,13 +190,19 @@ nav{
     transition: all 0.05s ease-in-out;
 }
    
-
+.btn1{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    gap: 5px;
+}
 .btn1:hover{
     outline: 2px solid #fefffcf3;
+    
 }
 
 .btn2:hover{
-    outline: 2px solid rgb(6, 175, 222);
+    outline: 4px solid rgb(6, 175, 222);
 }
 
 .chaser{
@@ -147,7 +230,14 @@ nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 122px;
+    background: #edebeb1f;
+    padding: 27px;
+    transition: all 0.1s ease;
+    display: none;
+}
+
+.about:hover{
+    box-shadow: 2px;
 }
 .about p{
     font-family: var(--fontOne);
@@ -155,7 +245,7 @@ nav{
     padding-left: 30px;
     font-size: 22px;
     border-left: 1px solid grey;
-    line-height: 1.5;
+    line-height: 2;
 }
 .about h1{
     font-size: 35px;
@@ -163,4 +253,42 @@ nav{
     width: 30%;
     text-align: center;
 }
-    
+
+
+.sectiontwo{
+    background-color: black;
+    padding: 80px;
+    z-index: 20;
+    position: relative;
+}
+
+.skills h1{
+    width: 400px;
+    height: 400px;
+    color: white;
+    background-color: #f200207b;
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--fontOne);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.skills-heading {
+    font-size: 2.5rem;
+    font-family: 'Poppins', sans-serif;
+    display: block;
+    margin: 20px 0;
+    color: #f6cfcf; /* Main text color */
+    padding: 10px;
+}
+
+.skills-heading:after{
+    content: "";
+    background: linear-gradient(to right, #ff6a00, #ee0979);
+    display: block;
+    width: 100%;
+    height: 4px;
+}    
+  
