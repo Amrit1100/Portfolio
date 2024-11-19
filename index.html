@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+      <nav>
+        <div class="logo">Port<span>Folio</span></div>
+        <div class="navitems">
+          <div class="navitem"><a href="/">Home</a></div>
+          <div class="navitem"><a href="/">About</a></div>
+          <div class="navitem"><a href="/">Contact</a></div>
+        </div>
+      </nav>
+      <section>
+        <div class="containerOne">
+          <div class="myself">
+            Hi,
+            I'm <span class="name">Amrit</span> and
+            I am a passionate <span id="element"></span>
+            <div class="buttons">
+              <button class="btn1">Contact Me</button>
+              <button class="btn2">Skills</button>
+            </div>
+          </div>
+          <div class="myimage">
+            <img src="imageTwo.jpeg" alt="" />
+          </div>
+          
+        </div>
+        <div class="about">
+          <h1>About Me</h1>
+          <p>My name is Amritpreet Singh, born and brought up in India. I am currently enrolled in Georgian college and studying Computer-Networking and System Administartion. I am highly passionate about learning programming and making amazing websites.</p>
+        </div>
+        
+      </section>
+      <footer></footer>
+      <script src="script.js"></script>
+      <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+      <script>
+        var typed = new Typed('#element', {
+          strings: ['web developer.', 'programmer.'],
+          typeSpeed: 50,
+          loop : true,
+          loopCount: Infinity,
+          backDelay: 1000,
+          backSpeed: 50,
+          
+        });
+      </script>
+    </body>
+  </html>
+   
+  
+
