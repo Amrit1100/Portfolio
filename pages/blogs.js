@@ -30,7 +30,7 @@ const Blogs = () => {
    <>
    <h1 className='text-center mt-6 text-3xl'>Blogs</h1>
    {loading && <div className='fixed inset-0 flex justify-center items-center bg-opacity-50r'><div className='text-white text-2xl font-semibold animate-pulse'>Loading...</div></div>}
-   {!loading &&  <div className="grid lg:grid-cols-3 grid-cols-1 w-[80vw] mx-auto mt-6 gap-10">
+   {!loading &&  <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 w-[80vw] mx-auto mt-6 gap-10">
     <div className='rounded-lg overflow-hidden p-4 transition-all'>
       <div className='w-full h-[250px] text-center mx-auto'><img src={blogs.img} alt="" className='w-full h-full object-cover'/></div> 
       <h1 className='mt-3 text-lg font-bold'>{blogs.title}</h1> 
