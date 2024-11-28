@@ -1,4 +1,4 @@
-import client from "@/lib/mongodb.mjs";
+import client from "@/lib/mongodb.js";
 export default async function handler(req, res) {
     if (req.method == "POST"){
         try{
