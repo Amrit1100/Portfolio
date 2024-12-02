@@ -40,7 +40,8 @@ export default function Home() {
 
   return (
    <>
-   <section className="flex justify-around items-center my-12 flex-wrap xl:flex-nowrap w-[95vw] xl:w-full xl:gap-0 gap-10">
+   <div>
+   <section className="flex justify-around items-center my-12 flex-wrap xl:flex-nowrap w-[95vw] xl:w-full xl:gap-0 gap-10 bg-">
     <div data-aos="fade-up"
      data-aos-duration="3000">
       <h2 className="text-white=600 text-2xl my-4">&lt; &gt;</h2>
@@ -57,9 +58,14 @@ export default function Home() {
      data-aos-duration="3000">
       <img src="/imageTwo.jpeg" alt="" className="xl:w-[400px] w-[200px] lg:w-[300px] rounded-[100px]"/>
     </div>
-   </section>
+    </section>
+    <div>
+ <img src="/cloud.png" alt="" className='opacity-5'/>
+    </div>
+   </div>
 
-   <section className="bg-slate-900 my-8 p-7 py-28" id="skills" >
+  
+   <section className="bg-slate-900 p-7 py-28" id="skills" >
     <h1 className="text-center text-4xl font-bold" >My Core Skills</h1>
     <div className="flex md:w-[95vw] my-16 mx-auto justify-around items-center xl:flex-nowrap flex-wrap xl:gap-0 gap-10">
     

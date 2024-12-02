@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
+import { useToast } from "@/hooks/use-toast"
+
 
 
 const Signup = () => {
@@ -9,12 +11,13 @@ const Signup = () => {
   let [email, Setemail] = useState()
   let [password, Setpassword] = useState()
   let [cpassword, Setcpassword] = useState()
+  const { toast } = useToast()
 
   const makeSignup = async()=>{
     if (!email || !password || !cpassword){
-      toast.error("All fields required!", {autoClose : 2000})
+      toast({ variant: "destructive",title: "All fields required!"})
     }else if(password!=cpassword){
-      toast.error("Password's don't match", {autoClose : 2000})
+      toast({ variant: "destructive",title: "Password's don't match"})
     }else{
       Setloading(true)
       let response = await fetch("/api/signup", {
@@ -25,7 +28,7 @@ const Signup = () => {
       let message = await response.json()
       Setloading(false)
       if (message.response == "usernameExist"){
-       
+       toast({ variant: "destructive",title: "Email ID already exist"})
       }else{
        
       }
@@ -56,7 +59,7 @@ const Signup = () => {
 
             <div className="flex items-center">
               <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 text-purple-600 focus:ring-purple-500 border-gray-300 rounded" />
-              <label for="remember-me" className="text-white ml-3 block text-sm">
+              <label htmlFor="remember-me" className="text-white ml-3 block text-sm">
                 I accept the <a href="/" className="text-purple-600 font-semibold hover:underline ml-1">Terms and Conditions</a>
               </label>
             </div>
