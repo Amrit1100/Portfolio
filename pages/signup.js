@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+
 
 const Signup = () => {
   let [visibility, Setvisibility] = useState(false)
@@ -26,9 +25,9 @@ const Signup = () => {
       let message = await response.json()
       Setloading(false)
       if (message.response == "usernameExist"){
-        toast.error("This email id already have account", {autoClose: 3000})
+       
       }else{
-        toast.success("Success", {autoClose:2000})
+       
       }
     }
   }
