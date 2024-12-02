@@ -16,7 +16,7 @@ import {
 
 const Navbar = () => {
   return (
-    <div className='flex p-6 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center'>
+    <div className='flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center'>
       <div className="text-3xl font-bold mx-4">Port<span className='text-purple-600'>folio</span></div>
       <div className="hidden lg:flex gap-7 text-md font-semibold items-center justify-between">
         <Link href={"/"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>Home</div></Link>

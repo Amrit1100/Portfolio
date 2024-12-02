@@ -31,13 +31,13 @@ const Slug = () => {
   }
 
   return (
-    <div className="w-[70vw] mx-auto mt-10 p-6 rounded-lg">
-      <div className="flex items-center gap-7">
-        <div className="w-[150px] rounded-lg overflow-hidden">
+    <>    <div className="md:w-[70vw] w-[90vw] mx-auto mt-10 md:p-6 p-3 rounded-lg">
+      <div className="flex items-center gap-7 md:flex-nowrap flex-wrap justify-center md:justify-start">
+        <div className="md:w-[150px] w-[100px] rounded-lg overflow-hidden">
           <img src={blog.img} alt="" className="object-cover" />
         </div>
         <div>
-          <h1 className="text-3xl font-bold">{blog.title}</h1>
+          <h1 className="lg:text-3xl text-xl font-bold">{blog.title}</h1>
           <div className="flex items-center mt-4 gap-4">
             <div className="flex items-center gap-2">
               <div className="w-[30px] h-[30px] rounded-full overflow-hidden">
@@ -49,7 +49,10 @@ const Slug = () => {
           </div>
         </div>
       </div>
+      <div dangerouslySetInnerHTML={{__html : blog.content}} className='mt-8'></div>
     </div>
+    </>
+
   );
 };
 

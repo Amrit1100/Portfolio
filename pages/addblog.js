@@ -32,9 +32,6 @@ const addblog = () => {
        <div><label htmlFor="content" className='text-lg text-white'>Content</label></div>
        <div><textarea id = "content" type="text" className='w-full p-4 rounded-lg bg-gray-800 text-white'/></div>
       </div>
-
-      
-      
     </div>
   )
 }
