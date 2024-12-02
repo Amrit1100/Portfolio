@@ -27,7 +27,7 @@ const Slug = () => {
   }, [slug]);
 
   if (!blog) {
-    return <div className="text-center mt-10">Loading...</div>;
+    return <div className="fixed flex inset-0 items-center justify-center"><div className='text-xl font-semibold'>Loading...</div></div>;
   }
 
   return (
