@@ -66,7 +66,7 @@ export default function Home() {
     <div className="xl:w-1/4 md:w-3/4 w-[80vw] transition-all relative hover:translate-y-[-10px]">
     <div data-aos="fade-up" className=" w-full bg-transparent rounded-md border-2 border-purple-600 p-8 h-[430px] transition-all hover:bg-purple-900 hover:translate-y-4">
     <div className="text-8xl my-4"><FaCode /></div>
-    <h1 className="text-center font-bold text-4xl ">Frontent Development</h1>
+    <h1 className="text-center font-bold text-4xl ">Frontend Development</h1>
     <p className="my-5 leading-7">Crafting responsive and interactive user interfaces using technologies like React, Next.js, and Tailwind CSS and many more.</p>
     </div>
     </div>
