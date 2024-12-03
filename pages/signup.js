@@ -8,13 +8,14 @@ import { useToast } from "@/hooks/use-toast"
 const Signup = () => {
   let [visibility, Setvisibility] = useState(false)
   let [loading, Setloading] = useState(false)
+  let [name, Setname] = useState()
   let [email, Setemail] = useState()
   let [password, Setpassword] = useState()
   let [cpassword, Setcpassword] = useState()
   const { toast } = useToast()
 
   const makeSignup = async()=>{
-    if (!email || !password || !cpassword){
+    if (!name || !email || !password || !cpassword){
       toast({ variant: "destructive",title: "All fields required!"})
     }else if(password!=cpassword){
       toast({ variant: "destructive",title: "Password's don't match"})
@@ -23,14 +24,14 @@ const Signup = () => {
       let response = await fetch("/api/signup", {
         method : "POST",
         headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify({email,password})
+        body : JSON.stringify({name,email,password})
       })
       let message = await response.json()
       Setloading(false)
       if (message.response == "usernameExist"){
        toast({ variant: "destructive",title: "Email ID already exist"})
       }else{
-       
+        toast({ variant: "success",title: "Success"})
       }
     }
   }
@@ -44,6 +45,10 @@ const Signup = () => {
 
         <form>
           <div className="space-y-6">
+          <div>
+              <label className="text-white text-sm mb-2 block">Name</label>
+              <input onChange = {(e)=>{Setname(e.target.value)}} value = {name} name="name" type="text" className="text-black bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-purple-500" placeholder="Enter Name" />
+            </div>
             <div>
               <label className="text-white text-sm mb-2 block">Email Id</label>
               <input onChange = {(e)=>{Setemail(e.target.value)}} value = {email} name="email" type="text" className="text-black bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-purple-500" placeholder="Enter email" />

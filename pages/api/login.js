@@ -1,9 +1,23 @@
-export default function handler(req, res) {
-    if (req.method == "POST"){
-        let username = req.username
-        let password = req.password
-        
+import client from "@/lib/mongodb"
+import { useToast } from "@/hooks/use-toast"
 
+export default async function handler(req, res) {
+    if (req.method == "POST"){
+        let email = req.body.email
+        let password = req.body.password
+        client.connect()
+        let db = client.db("Portfolio")
+        let users = db.collection("Users")
+        let user = await users.findOne({email})
+        if (!user){
+            res.json({"response": "noaccount"})
+        }else{
+            if (password === user.password){
+                res.json({"response" : "success", user})
+            }else{
+                res.json({"response" : "incpassword"})
+            }
+        }
     }else{
         res.status(400).json({error : "This type of request is not allowed."})
     }
