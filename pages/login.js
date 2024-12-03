@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useToast } from "@/hooks/use-toast"
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
-const Login = () => {
+import { useRouter } from 'next/router';
+const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
   let [email,Setemail] = useState()
   let [password,Setpassword] = useState()
   let [loading,Setloading] = useState(false)
   let [visibility, Setvisibility] = useState(false)
   const { toast } = useToast()
+  const router = useRouter()
 
   const makeLogin = async()=>{
     if (!email || !password){
@@ -28,8 +30,13 @@ const Login = () => {
         toast({ variant: "destructive",title: "Incorrect Password!"})
       }else{
         toast({title : "Success!"})
+        Setlogin(true)
+        Setuserdetails(data.userdetails)
+        console.log(data.userdetails)
+        router.push("/")
       }
     }
+        
 
   }
   return (

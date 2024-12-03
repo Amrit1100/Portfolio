@@ -2,6 +2,7 @@ import React from 'react'
 import { Button } from './ui/button'
 import Link from "next/link"
 import { RxHamburgerMenu } from "react-icons/rx";
+import { MdOutlineAccountCircle } from "react-icons/md";
 import {
   Sheet,
   SheetContent,
@@ -11,10 +12,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 
-
-
-
-const Navbar = () => {
+const Navbar = ({login, Setlogin, userdetails, Setuserdetails}) => {
   return (
     <div className='flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center'>
       <div className="text-3xl font-bold mx-4">Port<span className='text-purple-600'>folio</span></div>
@@ -23,9 +21,19 @@ const Navbar = () => {
         <Link href={"/#contact"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>Contact</div></Link>
         <Link href={"/"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>About</div></Link>
         <Link href={"/blogs"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>Blogs</div></Link>
+        <div>
+          {login?
+          <div className='flex items-center gap-4'>
+            <div className='flex items-center gap-1'>
+              <div><MdOutlineAccountCircle className='text-xl'/></div>
+              <div>{userdetails.name}</div>
+            </div>
+              <Link href={"/login"}><Button variant="outline">Logout</Button></Link>
+          </div>:
         <div className="flex gap-3">
         <Link href={"/login"}><div><Button variant="outline">Login</Button></div></Link>
         <Link href={"/signup"}><div><Button variant="outline">Signup</Button></div></Link>
+        </div>}
         </div>
       </div>
         <div className='lg:hidden'>
@@ -40,9 +48,11 @@ const Navbar = () => {
         <div className='text-center'><Link href={"/#contact"} className='transition-all hover:text-purple-600'>Contact</Link></div>
         <div className='text-center'><Link href={"/"} className='transition-all hover:text-purple-600'>About</Link></div>
         <div className='text-center'><Link href={"/blogs"} className='transition-all hover:text-purple-600'>Blogs</Link></div>
-        <div className="flex gap-3 mx-auto mt-6">
+        <div>
+        {true?<div><Link href={"/login"}><Button variant="outline">Logout</Button></Link></div>:<div className="flex gap-3 mx-auto mt-6">
         <div><Link href={"/login"}><Button variant="outline">Login</Button></Link></div>
         <div><Link href={"/signup"}><Button variant="outline">Signup</Button></Link></div>
+        </div>}
         </div>
         </div>
 

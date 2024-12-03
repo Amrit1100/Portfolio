@@ -6,9 +6,10 @@ import { useState } from "react";
 
 export default function App({ Component, pageProps }) {
   const [login, Setlogin] = useState(false)
+  const [userdetails, Setuserdetails] = useState(false)
   return <>
-  <Navbar/>
-  <Component {...pageProps} />
+  <Navbar login = {login} Setlogin = {Setlogin} userdetails={userdetails} Setuserdetails = {Setuserdetails} />
+  <Component {...pageProps} login = {login} Setlogin = {Setlogin} userdetails={userdetails} Setuserdetails = {Setuserdetails}/>
   <Toaster />
   </>
 }

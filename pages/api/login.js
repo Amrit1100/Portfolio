@@ -13,7 +13,9 @@ export default async function handler(req, res) {
             res.json({"response": "noaccount"})
         }else{
             if (password === user.password){
-                res.json({"response" : "success", user})
+                let name = user.name
+                let userdetails = {name,email}
+                res.json({"response" : "success", userdetails})
             }else{
                 res.json({"response" : "incpassword"})
             }
