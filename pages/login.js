@@ -81,7 +81,7 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
 
               <div className="!mt-8">
                 <button disabled = {loading} onClick = {makeLogin} type="button" className="w-full py-3 px-4 text-sm tracking-wide rounded-lg text-white bg-purple-600 hover:bg-purple-700 focus:outline-none">
-                  <span>{loading?<span>Loading...</span>:<span>Sign in</span>}</span>
+                  <span>{loading?<span>Please wait...</span>:<span>Sign in</span>}</span>
                 </button>
               </div>
               <p className="text-white-800 text-sm !mt-8 text-center">Don't have an account? <a href="/signup" className="text-purple-600 hover:underline ml-1 whitespace-nowrap font-semibold">Register here</a></p>

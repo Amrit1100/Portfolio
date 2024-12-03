@@ -5,7 +5,7 @@ export default async function handler(req, res) {
             client.connect()
             let db = client.db("Portfolio")
             let collection = db.collection("Blogs")
-            let blogs = await collection.findOne({})
+            let blogs = await collection.find().toArray()
             res.status(200).json(blogs)
         }catch{
             res.json({error : "Error connecting to databse"})

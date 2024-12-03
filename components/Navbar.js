@@ -23,7 +23,7 @@ const Navbar = ({login, Setlogin, userdetails, Setuserdetails}) => {
   return (
     <>
     <div className='flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center'>
-      <div className="lg:text-3xl text-xl font-bold mx-4">Port<span className='text-purple-600'>folio</span></div>
+      <Link href={"/"}><div className="lg:text-3xl text-xl font-bold mx-4">Port<span className='text-purple-600'>folio</span></div></Link>
       <div className="hidden lg:flex gap-7 text-md font-semibold items-center justify-between">
         <Link href={"/"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>Home</div></Link>
         <Link href={"/#contact"}><div className='transition-all hover:text-purple-600 hover:cursor-pointer'>Contact</div></Link>
@@ -60,7 +60,7 @@ const Navbar = ({login, Setlogin, userdetails, Setuserdetails}) => {
         {login?<div><div className='flex items-center gap-1 lg:hidden justify-center mb-4'>
           <div><MdOutlineAccountCircle className='text-xl'/></div>
           <div>{userdetails.name}</div>
-          </div><Link href={"/login"}><Button variant="outline">Logout</Button></Link></div>:
+          </div><div onClick={makeLogout}><Button variant="outline">Logout</Button></div></div>:
         <div className="flex gap-3 mx-auto mt-6 justify-center">
         <div><Link href={"/login"}><Button variant="outline">Login</Button></Link></div>
         <div><Link href={"/signup"}><Button variant="outline">Signup</Button></Link></div>
