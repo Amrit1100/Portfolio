@@ -39,7 +39,8 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
   const addComment = async()=>{
     if (!login){
       toast({ variant: "destructive",title: "Please Login to add comments!"})
-    }else{
+    }
+    else{
       Setloading(true)
       let username = userdetails.username
       const response = await fetch("/api/addcomment", {
@@ -81,7 +82,7 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
       <div dangerouslySetInnerHTML={{__html : blog.content}} className='mt-8'></div>
       <h1 className='text-4xl my-4 mt-8 font-bold'>Comments({(comments).length})</h1>
       <div className='my-5'><input type="text" onChange={(e)=>{Setusercomment(e.target.value)}} value={usercomment} className='p-3 text-white w-full bg-transparent border-b-2 border-gray-500' placeholder='Add your Comment'/></div>
-      <div className='inline-block bg-purple-700 text-white pt-4 pb-4 pl-6 pr-6 rounded-xl text-sm' onClick={addComment}><button>{loading?<span>Please wait...</span>:<span>Post Comment</span>}</button></div>
+      <div className='inline-block bg-purple-700 text-white pt-4 pb-4 pl-6 pr-6 rounded-xl text-sm' onClick={addComment}><button disabled = {!usercomment}>{loading?<span>Please wait...</span>:<span>Post Comment</span>}</button></div>
 
       {comments.map(e=>{
         return  <div className="flex items-center gap-4">
