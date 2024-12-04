@@ -17,9 +17,6 @@ import { SiNodedotjs } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
 
 
-
-
-
 export default function Home() {
 
   const el = React.useRef(null);

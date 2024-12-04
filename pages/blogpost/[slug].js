@@ -41,11 +41,11 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
       toast({ variant: "destructive",title: "Please Login to add comments!"})
     }else{
       Setloading(true)
-      let email = userdetails.email
+      let username = userdetails.username
       const response = await fetch("/api/addcomment", {
         method : "POST",
         headers : {"Content-Type": "application/json"},
-        body : JSON.stringify({email,usercomment,slug})
+        body : JSON.stringify({username,usercomment,slug})
       })
       let data = await response.json()
       if (data.success === true){
@@ -79,14 +79,17 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
         </div>
       </div>
       <div dangerouslySetInnerHTML={{__html : blog.content}} className='mt-8'></div>
-      <h1 className='text-4xl my-4 mt-8 font-bold'>Comments({(blog.comments).length})</h1>
+      <h1 className='text-4xl my-4 mt-8 font-bold'>Comments({(comments).length})</h1>
       <div className='my-5'><input type="text" onChange={(e)=>{Setusercomment(e.target.value)}} value={usercomment} className='p-3 text-white w-full bg-transparent border-b-2 border-gray-500' placeholder='Add your Comment'/></div>
       <div className='inline-block bg-purple-700 text-white pt-4 pb-4 pl-6 pr-6 rounded-xl text-sm' onClick={addComment}><button>{loading?<span>Please wait...</span>:<span>Post Comment</span>}</button></div>
 
       {comments.map(e=>{
-        return  <div className='my-5 bg-slate-900 p-3 rounded-lg'>
-        <h2 className='text-lg'>{e.name}</h2>
+        return  <div className="flex items-center gap-4">
+        <div className='bg-purple-600 text-white w-[50px] h-[50px] rounded-full flex items-center justify-center'>{(e.username.slice(0,1)).toUpperCase()}</div>
+        <div className='my-5 p-3 rounded-lg grow' style={{backgroundColor : "#8080801c"}}>
+        <h2 className='text-md mb-2'>@{e.username}</h2>
         <div>{e.comment}</div>
+        </div>
         </div>
       })}
      

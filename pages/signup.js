@@ -9,13 +9,14 @@ const Signup = () => {
   let [visibility, Setvisibility] = useState(false)
   let [loading, Setloading] = useState(false)
   let [name, Setname] = useState()
+  let [username, Setusername] = useState()
   let [email, Setemail] = useState()
   let [password, Setpassword] = useState()
   let [cpassword, Setcpassword] = useState()
   const { toast } = useToast()
 
   const makeSignup = async()=>{
-    if (!name || !email || !password || !cpassword){
+    if (!name ||!username || !email || !password || !cpassword){
       toast({ variant: "destructive",title: "All fields required!"})
     }else if(password!=cpassword){
       toast({ variant: "destructive",title: "Password's don't match"})
@@ -24,14 +25,17 @@ const Signup = () => {
       let response = await fetch("/api/signup", {
         method : "POST",
         headers : {"Content-Type" : "application/json"},
-        body : JSON.stringify({name,email,password})
+        body : JSON.stringify({name,username,email,password})
       })
       let message = await response.json()
       Setloading(false)
-      if (message.response == "usernameExist"){
+      if (message.response == "emailExist"){
        toast({ variant: "destructive",title: "Email ID already exist"})
-      }else{
-        toast({ variant: "success",title: "Success"})
+      }else if (message.response == "usernameExist"){
+        toast({ variant: "destructive",title: "Username taken. Please make another username!"})
+      }
+      else{
+        toast({ variant: "success",title: "Success! Open Gmail to verify your account"})
       }
     }
   }
@@ -49,6 +53,13 @@ const Signup = () => {
               <label className="text-white text-sm mb-2 block">Name</label>
               <input onChange = {(e)=>{Setname(e.target.value)}} value = {name} name="name" type="text" className="text-black bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-purple-500" placeholder="Enter Name" />
             </div>
+
+            <div>
+              <label className="text-white text-sm mb-2 block">Username</label>
+              <input onChange = {(e)=>{Setusername(e.target.value)}} value = {username} name="username" type="text" className="text-black bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-purple-500" placeholder="Enter Username" />
+            </div>
+
+
             <div>
               <label className="text-white text-sm mb-2 block">Email Id</label>
               <input onChange = {(e)=>{Setemail(e.target.value)}} value = {email} name="email" type="text" className="text-black bg-white border border-gray-300 w-full text-sm px-4 py-3 rounded-md outline-purple-500" placeholder="Enter email" />
