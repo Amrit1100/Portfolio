@@ -29,7 +29,7 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
       }else if (data.response == "incpassword"){
         toast({ variant: "destructive",title: "Incorrect Password!"})
       }else{
-        toast({variant : "success",title : "Login Successful!"})
+        toast({variant : "success",title : `Login Successful! Welcome ${data.userdetails.name}`})
         Setlogin(true)
         Setuserdetails(data.userdetails)
         console.log(data.userdetails)
