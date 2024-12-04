@@ -49,7 +49,7 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
       })
       let data = await response.json()
       if (data.success === true){
-        toast({title : "Success! Comment Added"})
+        toast({variant : "success",title : "Success! Comment Added"})
         Setcomments(data.blog.comments)
       }else{
         toast({title : "Something went wrong!"})

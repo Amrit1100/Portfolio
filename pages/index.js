@@ -19,6 +19,7 @@ import { SiExpress } from "react-icons/si";
 
 
 
+
 export default function Home() {
 
   const el = React.useRef(null);
@@ -60,7 +61,7 @@ export default function Home() {
     </div>
     </section>
     <div>
- <img src="/cloud.png" alt="" className='opacity-5'/>
+ <img src="/cloud.png" alt="" className='opacity-10'/>
     </div>
    </div>
 

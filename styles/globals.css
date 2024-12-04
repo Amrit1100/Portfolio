@@ -11,6 +11,7 @@
 
 html{
   scroll-behavior: smooth;
+  scrollbar-color: black;
 }
 body {
   color: var(--foreground);

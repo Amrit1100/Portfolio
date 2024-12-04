@@ -47,10 +47,7 @@ const Blogs = () => {
       </div>
       </Link>
     })}
-    
     </div>}
-   
-
     </>
   
   )
