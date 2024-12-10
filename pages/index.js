@@ -48,7 +48,7 @@ export default function Home() {
       <p className="xl:text-5xl text-3xl my-4"><span className="text-purple-200" ref={el}></span></p>
       <div className="flex gap-8 my-8">
         <Link href={"/#skills"}><div><Button className = "bg-purple-600 text-white p-7 transition-all hover:bg-purple-400">Skills</Button></div></Link>
-        <Link href={""}><div><Button className = "bg-purple-600 text-white p-7 transition-all hover:bg-purple-400">Projects</Button></div></Link>
+        <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "bg-purple-600 text-white p-7 transition-all hover:bg-purple-400">Projects</Button></div></Link>
       </div>
       <h2 className="text-white=600 text-2xl my-4">&lt; /&gt;</h2>
       </div>
