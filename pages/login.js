@@ -3,6 +3,7 @@ import { useToast } from "@/hooks/use-toast"
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
 import { useRouter } from 'next/router';
+import Link from "next/link"
 const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
   let [email,Setemail] = useState()
   let [password,Setpassword] = useState()
@@ -76,9 +77,9 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
                   </label>
                 </div>
                 <div className="text-sm">
-                  <a href="/" className="text-purple-600 hover:underline font-semibold">
+                  <Link href="/forgetpassword" className="text-purple-600 hover:underline font-semibold">
                     Forgot your password?
-                  </a>
+                  </Link>
                 </div>
               </div>
 
