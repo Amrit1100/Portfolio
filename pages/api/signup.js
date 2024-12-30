@@ -14,13 +14,17 @@ export default async function handler(req, res) {
         let user = await users.findOne({email})
         let usernamecheck = await users.findOne({username})
         if (user){
-            res.json({"response" : "emailExist"})
+            if (user.isverified===false){
+                users.deleteOne({email})
+            }else{
+                res.json({"response" : "emailExist"})
+            }
         }else if (usernamecheck){
             res.json({"response" :"usernameExist" })
         }
-        else{
+        
            let token = crypto.randomBytes(32).toString("hex")
-           let verificationLink = `http://localhost:3000/api/auth?token=${token}`
+           let verificationLink = `http://${process.env.URL}/api/auth?token=${token}`
            try{
                await transporter.sendMail({
                 from : "portfolio.amrit@gmail.com",
@@ -34,9 +38,6 @@ export default async function handler(req, res) {
                res.status(200).json({"response": "success"})
             }catch(error){
                 console.log(error)
-            }
-            
-
             }
            
 

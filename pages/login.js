@@ -28,7 +28,10 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
         toast({ variant: "destructive",title: "No Account with this email!"})
       }else if (data.response == "incpassword"){
         toast({ variant: "destructive",title: "Incorrect Password!"})
-      }else{
+      }else if (data.response == "notverified"){
+        toast({variant:"destructive", title : "Your account is not verified. Please sign up again."})
+      }
+      else{
         toast({variant : "success",title : `Login Successful! Welcome ${data.userdetails.name}`})
         Setlogin(true)
         Setuserdetails(data.userdetails)

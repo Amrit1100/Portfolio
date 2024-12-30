@@ -11,7 +11,10 @@ export default async function handler(req, res) {
         let user = await users.findOne({email})
         if (!user){
             res.json({"response": "noaccount"})
-        }else{
+        }else if (user.isverified===false){
+            res.json({"response" : "notverified"})
+        }
+        else{
             if (password === user.password){
                 let name = user.name
                 let username = user.username
