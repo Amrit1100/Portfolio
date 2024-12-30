@@ -19,7 +19,7 @@ export default async function handler(req, res){
         res.send( `<html>
             <body>
                 <h1 style = "text-align : center, color : purple">Congratulation! Your account has been verified.</h1>
-                <a href = "http://localhost:3000/login">Login here </a>
+                <a href = http://${process.env.URL}/login>Login here </a>
             </body>
           </html>
         `)
