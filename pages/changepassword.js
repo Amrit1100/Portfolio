@@ -35,12 +35,14 @@ const Changepassword = () => {
         }
     }
   return (
-    <div>
+    <div className='w-[90vw] md:w-[50vw] mx-auto p-2 space-y-4 my-14'>
+      <div className='space-y-2'>
       <div>New password</div>
-      <div><input type="text" className='text-black' onChange={(e)=>{Setpass(e.target.value)}}/></div>
+      <div><input type="text" className='text-black p-2 w-full' onChange={(e)=>{Setpass(e.target.value)}}/></div></div>
+      <div className='space-y-2'>
       <div>Confirm Password</div>
-      <div><input type="text" className='text-black' onChange={(e)=>{Setcpass(e.target.value)}}/></div>
-      <button className="button my-4 bg-green-600 text-white p-3 rounded-e-md cursor-pointer" onClick={makechangepassword}>{loading?<span>Please wait..</span>:<span>Change Password</span>}</button>
+      <div><input type="text" className='text-black p-2 w-full' onChange={(e)=>{Setcpass(e.target.value)}}/></div></div>
+      <div className='text-center'><button className="button my-4 bg-green-600 text-white p-3 rounded-md cursor-pointer" onClick={makechangepassword}>{loading?<span>Please wait..</span>:<span>Change Password</span>}</button></div>
     </div>
   )
 }

@@ -3,7 +3,6 @@ import transporter from "@/lib/email";
 import crypto from "crypto"
 export default async function handler(req, res){
     if (req.method === "POST"){
-
         let email = req.body.email
         client.connect()
         let db = client.db("Portfolio")
