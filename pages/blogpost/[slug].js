@@ -6,6 +6,7 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
   const [blog, setBlog] = useState(null);
   const [comments, Setcomments] = useState(null);
   const [loading, Setloading] = useState(false)
+  const [blogloading, Setblogloading] = useState(true)
   const [usercomment, Setusercomment] = useState()
   const router = useRouter();
   const { slug } = router.query;
@@ -23,7 +24,11 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
         });
         const data = await response.json();
         setBlog(data);
-        Setcomments(data.comments)
+        if (data!=null){
+          Setcomments(data.comments)
+        }
+        Setblogloading(false)
+
       } catch (error) {
         console.error("Error fetching blog data:", error);
       }
@@ -31,10 +36,6 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
 
     fetchBlog();
   }, [slug]);
-
-  if (!blog) {
-    return <div className="fixed flex inset-0 items-center justify-center"><div className='text-xl font-semibold'>Loading...</div></div>;
-  }
 
   const addComment = async()=>{
     if (!login){
@@ -60,7 +61,9 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
     }
   }
   return (
-    <>    
+    <> 
+    {blogloading===true?<div className="fixed flex inset-0 items-center justify-center"><div className='text-xl font-semibold'>Loading...</div></div>:
+    blog===null?<div className='fixed inset-0 flex justify-center items-center'>Page not found</div>:
     <div className="md:w-[70vw] w-[90vw] mx-auto mt-10 md:p-6 p-3 rounded-lg">
       <div className="flex items-center gap-7 md:flex-nowrap flex-wrap justify-center md:justify-start">
         <div className="md:w-[150px] w-[100px] rounded-lg overflow-hidden">
@@ -94,7 +97,7 @@ const Slug = ({login,Setlogin, userdetails, Setuserdetails}) => {
         </div>
       })}
      
-    </div>
+    </div>}
     </>
 
   );
