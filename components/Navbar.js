@@ -16,19 +16,25 @@ import {
 const Navbar = ({ login, Setlogin, userdetails, Setuserdetails }) => {
   const { toast } = useToast();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
+  const [showdialog, Setshowdialog] = useState(false);
 
   const makeLogout = () => {
+    Setshowdialog(false)
     Setlogin(false);
     Setuserdetails();
     toast({ title: "Logout Successful!" });
     setIsSheetOpen(false); // Close the sheet after logout
   };
 
+  
+
   const handleLinkClick = () => {
     setIsSheetOpen(false); // Close the sheet after link click
   };
 
   return (
+    <>
+    {showdialog && <div className="fixed inset-0 flex justify-center items-center"><div className="bg-gray-700 rounded-e-md p-4 flex justify-center"><div><div>Are you sure you want to logout?</div><div className="flex space-x-3"><button className="p-2 rounded-e-md cursor-pointer bg-gray-500" onClick={()=>{Setshowdialog(false)}}>No</button> <button className="p-2 rounded-e-md cursor-pointer bg-gray-500" onClick={makeLogout}>Yes</button></div></div></div></div>}
     <div className="flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center ">
       <Link href={"/"}>
         <div className="lg:text-3xl text-xl font-bold mx-4">
@@ -55,7 +61,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails }) => {
                 <MdOutlineAccountCircle className="text-xl" />
                 <div>{userdetails.name}</div>
               </div>
-              <Button variant="outline" onClick={makeLogout}>
+              <Button variant="outline" onClick={()=>{Setshowdialog(true)}}>
                 Logout
               </Button>
             </div>
@@ -132,6 +138,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails }) => {
         </Sheet>
       </div>
     </div>
+    </>
   );
 };
 
