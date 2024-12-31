@@ -1,5 +1,5 @@
 import Typed from 'typed.js';
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { FaCogs } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
@@ -15,6 +15,8 @@ import { SiMongodb } from "react-icons/si";
 import Link from "next/link"
 import { SiNodedotjs } from "react-icons/si";
 import { SiExpress } from "react-icons/si";
+import { useToast } from '@/hooks/use-toast';
+import { Title } from '@radix-ui/react-dialog';
 
 
 
@@ -37,6 +39,34 @@ export default function Home() {
       typed.destroy();
     };
   }, []);
+  let {toast} = useToast()
+
+  let [name,Setname] = useState()
+  let [email,Setemail] = useState()
+  let [message,Setmessage] = useState()
+  let [loading,Setloading] = useState(false)
+
+  const sendmessage = async()=>{
+    if (!name || !email || !message){
+      toast({variant : "destructive", title : "All fields required!"})
+    }else{
+      Setloading(true)
+      let response = await fetch("/api/sendmessage", {
+        method : "POST",
+        headers : {"Content-Type" : "application/json"},
+        body : JSON.stringify({name,email,message})
+      })
+      let data = await response.json()
+      Setloading(false)
+      Setname("")
+      Setemail("")
+      Setmessage("")
+      if (data.response =="success"){
+        toast({ variant: "success",title: "Message sent successfully."})
+      }
+    }
+  }
+
 
   return (
    <>
@@ -156,23 +186,23 @@ export default function Home() {
         <div data-aos="fade-up" className="p-2 md:w-1/2 w-full">
           <div data-aos="fade-up" className="relative">
             <label data-aos="fade-up" htmlFor="name" className="leading-7 text-sm text-white=600">Name</label>
-            <input data-aos="fade-up" type="text" id="name" name="name" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-white=700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-black"/>
+            <input  onChange={(e)=>{Setname(e.target.value)}} value={name} data-aos="fade-up" type="text" id="name" name="name" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-white=700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-black"/>
           </div>
         </div>
         <div data-aos="fade-up" className="p-2 md:w-1/2 w-full">
           <div data-aos="fade-up" className="relative">
             <label data-aos="fade-up" htmlFor="email" className="leading-7 text-sm text-white=600">Email</label>
-            <input data-aos="fade-up" type="email" id="email" name="email" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-white=700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-black"/>
+            <input  onChange={(e)=>{Setemail(e.target.value)}} value = {email} data-aos="fade-up" type="email" id="email" name="email" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 text-base outline-none text-white=700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out text-black"/>
           </div>
         </div>
         <div data-aos="fade-up" className="p-2 w-full">
           <div data-aos="fade-up" className="relative">
             <label data-aos="fade-up" htmlFor="message" className="leading-7 text-sm text-white=600">Message</label>
-            <textarea data-aos="fade-up" id="message" name="message" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 h-32 text-base outline-none text-white=700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out text-black"></textarea>
+            <textarea onChange={(e)=>{Setmessage(e.target.value)}} value = {message} data-aos="fade-up" id="message" name="message" className="w-full bg-white=100 bg-opacity-50 rounded border border-white=300 focus:border-purple-500 focus:bg-white focus:ring-2 focus:ring-purple-200 h-32 text-base outline-none text-white=700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out text-black"></textarea>
           </div>
         </div>
         <div className="p-2 w-full">
-          <button className="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">Send</button>
+          <button className="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg" onClick={sendmessage}>{loading?<span>Please wait..</span>:<span>Send</span>}</button>
         </div>
         <div className="p-2 w-full pt-8 mt-8 border-t border-white=200 text-center">
           

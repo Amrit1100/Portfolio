@@ -27,7 +27,7 @@ export default async function handler(req, res) {
            let verificationLink = `http://${process.env.URL}/api/auth?token=${token}`
            try{
                await transporter.sendMail({
-                from : "portfolio.amrit@gmail.com",
+                from : process.env.EMAIL,
                 to : email,
                 subject : "Amrit's Portfolio : Verify your Email Address",
                 html : `<p>Hi ${name}, </p>
