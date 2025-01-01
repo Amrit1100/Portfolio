@@ -7,6 +7,7 @@ export default async function handler(req, res){
     let db = client.db("Portfolio")
     let users = db.collection("Users")
     let x = await users.findOne({token})
+    client.close()
     if (!x){
         res.send( `<html>
             <body>

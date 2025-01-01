@@ -11,6 +11,7 @@ export default async function handler(req, res){
     let blogs = db.collection("Blogs")
     await blogs.updateOne({slug}, {$push : {comments : {"username" : username,"comment" : comment} }})
     let blog = await blogs.findOne({slug})
+    client.close()
     res.json({success:true,blog})
 }else{
     res.json({"error" : "This type of request is not allowed."})

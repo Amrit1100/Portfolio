@@ -13,6 +13,7 @@ export default async function handler(req, res) {
         let db = client.db("Portfolio")
         let blogs = db.collection("Blogs")
         let checkedslug = await blogs.findOne({slug})
+        client.close()
         if (checkedslug){
             res.json({"response" : "Slugexist"})
         }else{
