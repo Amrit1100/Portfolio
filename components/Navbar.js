@@ -13,7 +13,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-const Navbar = ({ login, Setlogin, userdetails, Setuserdetails }) => {
+const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
   const { toast } = useToast();
   const [isSheetOpen, setIsSheetOpen] = useState(false);
   const [showdialog, Setshowdialog] = useState(false);
@@ -38,7 +38,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails }) => {
     <div className="flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center ">
       <Link href={"/"}>
         <div className="lg:text-3xl text-xl font-bold mx-4">
-          Port<span className="text-purple-600">folio</span>
+          Port<span className='text-purple-500'>folio</span>
         </div>
       </Link>
       <div className="hidden lg:flex gap-7 text-md font-semibold items-center justify-between">

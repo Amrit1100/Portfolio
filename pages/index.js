@@ -45,6 +45,7 @@ export default function Home() {
   let [email,Setemail] = useState()
   let [message,Setmessage] = useState()
   let [loading,Setloading] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   const sendmessage = async()=>{
     if (!name || !email || !message){
@@ -75,12 +76,12 @@ export default function Home() {
     <div data-aos="fade-up"
      data-aos-duration="3000">
       <h2 className="text-white=600 text-2xl my-4">&lt; &gt;</h2>
-      <h1 className="xl:text-7xl text-4xl font-bold">Hi, I am <span className="text-purple-500">Amrit</span> and</h1>
+      <h1 className="xl:text-7xl text-4xl font-bold">Hi, I am <span className='text-purple-500'>Amrit</span> and</h1>
       <p className="xl:text-5xl text-3xl my-4">I am a passionate </p>
       <p className="xl:text-5xl text-3xl my-4"><span className="text-purple-200" ref={el}></span></p>
       <div className="flex gap-8 my-8">
-        <Link href={"/#skills"}><div><Button className = "bg-purple-600 text-white p-7 transition-all hover:bg-purple-400">Skills</Button></div></Link>
-        <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "bg-purple-600 text-white p-7 transition-all hover:bg-purple-400">Projects</Button></div></Link>
+        <Link href={"/#skills"}><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Skills</Button></div></Link>
+        <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Projects</Button></div></Link>
       </div>
       <h2 className="text-white=600 text-2xl my-4">&lt; /&gt;</h2>
       </div>
@@ -100,7 +101,7 @@ export default function Home() {
     <div className="flex md:w-[95vw] my-16 mx-auto justify-around items-center xl:flex-nowrap flex-wrap xl:gap-0 gap-10">
     
     <div className="xl:w-1/4 md:w-3/4 w-[80vw] transition-all relative hover:translate-y-[-10px]">
-    <div data-aos="fade-up" className=" w-full bg-transparent rounded-md border-2 border-purple-600 p-8 h-[430px] transition-all hover:bg-purple-900 hover:translate-y-4">
+    <div data-aos="fade-up" className=" w-full bg-transparent rounded-md border-2 p-8 h-[430px] transition-all hover:translate-y-4 hover:bg-purple-800 border-purple-800">
     <div className="text-8xl my-4"><FaCode /></div>
     <h1 className="text-center font-bold text-4xl ">Frontend Development</h1>
     <p className="my-5 leading-7">Crafting responsive and interactive user interfaces using technologies like React, Next.js, and Tailwind CSS and many more.</p>
@@ -108,7 +109,7 @@ export default function Home() {
     </div>
 
     <div className="xl:w-1/4 md:w-3/4 w-[80vw] transition-all relative hover:translate-y-[-10px]">
-    <div data-aos="fade-up" className="w-full bg-transparent rounded-md border-2 border-purple-600 p-8 h-[430px] transition-all hover:bg-purple-900">
+    <div data-aos="fade-up" className="w-full bg-transparent rounded-md border-2 p-8 h-[430px] transition-all hover:bg-purple-800 border-purple-800">
     <div className="text-8xl my-4"><FaCogs /></div>
     <h1 className="text-center font-bold text-4xl ">Backend Development</h1>
     <p className="my-5 leading-7">Building robust and scalable server-side applications using Node.js, Express, and MongoDB.</p>
@@ -116,7 +117,7 @@ export default function Home() {
     </div>
    
     <div className="xl:w-1/4 md:w-3/4 w-[80vw] transition-all relative hover:translate-y-[-10px]">
-    <div data-aos="fade-up" className="w-full bg-transparent rounded-md border-2 border-purple-600 p-8 h-[430px] transition-all hover:bg-purple-900">
+    <div data-aos="fade-up" className="w-full bg-transparent rounded-md border-2 p-8 h-[430px] transition-all hover:bg-purple-800 border-purple-800">
     <div className="text-8xl my-4"><FaCodeBranch /></div>
     <h1 className="text-center font-bold text-4xl ">API's and Databases</h1>
     <p className="my-5 leading-7">Crafting seamless connections between robust databases and powerful APIs to drive efficient, scalable, and secure applications.</p>

@@ -14,7 +14,7 @@ export default function App({ Component, pageProps }) {
         <title>Portfolio - Amrit</title>
         <meta name="description" content="Welcome to my Portfolio website. In this website, you will find coding and personal blogs written by me." />
       </Head>
-  <Navbar login = {login} Setlogin = {Setlogin} userdetails={userdetails} Setuserdetails = {Setuserdetails} />
+  <Navbar login = {login} Setlogin = {Setlogin} userdetails={userdetails} Setuserdetails = {Setuserdetails}/>
   <Component {...pageProps} login = {login} Setlogin = {Setlogin} userdetails={userdetails} Setuserdetails = {Setuserdetails}/>
   <Toaster />
   </>
