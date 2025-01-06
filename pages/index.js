@@ -70,7 +70,7 @@ export default function Home() {
 
 
   return (
-   <>
+   <div>
    <div>
    <section className="flex justify-around items-center my-12 flex-wrap xl:flex-nowrap w-[95vw] xl:w-full xl:gap-0 gap-10 bg-">
     <div data-aos="fade-up"
@@ -213,6 +213,6 @@ export default function Home() {
   </div>
 </section>
    </div>
-    </>
+   </div>
   )
 }
