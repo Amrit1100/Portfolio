@@ -111,6 +111,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
                     Blogs
                   </Link>
                 </div>
+                
                 <div>
                   {login ? (
                     <div>

@@ -45,7 +45,7 @@ export default function Home() {
   let [email,Setemail] = useState()
   let [message,Setmessage] = useState()
   let [loading,Setloading] = useState(false)
-  const [isHovered, setIsHovered] = useState(false);
+   
 
   const sendmessage = async()=>{
     if (!name || !email || !message){
@@ -70,7 +70,7 @@ export default function Home() {
 
 
   return (
-   <div>
+   <div >
    <div>
    <section className="flex justify-around items-center my-12 flex-wrap xl:flex-nowrap w-[95vw] xl:w-full xl:gap-0 gap-10 bg-">
     <div data-aos="fade-up"
@@ -78,7 +78,7 @@ export default function Home() {
       <h2 className="text-white=600 text-2xl my-4">&lt; &gt;</h2>
       <h1 className="xl:text-7xl text-4xl font-bold">Hi, I am <span className='text-purple-500'>Amrit</span> and</h1>
       <p className="xl:text-5xl text-3xl my-4">I am a passionate </p>
-      <p className="xl:text-5xl text-3xl my-4"><span className="text-purple-200" ref={el}></span></p>
+      <p className="xl:text-5xl text-3xl my-4"><span className="text-purple-500" ref={el}></span></p>
       <div className="flex gap-8 my-8">
         <Link href={"/#skills"}><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Skills</Button></div></Link>
         <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Projects</Button></div></Link>
@@ -86,8 +86,9 @@ export default function Home() {
       <h2 className="text-white=600 text-2xl my-4">&lt; /&gt;</h2>
       </div>
     <div data-aos="fade-up"
-     data-aos-duration="3000">
-      <img src="/imageTwo.jpeg" alt="" className="xl:w-[400px] w-[200px] lg:w-[300px] rounded-[100px]"/>
+     data-aos-duration="3000" className='p-4 border-2 border-white relative'>
+      <img src="/imageTwo.jpeg" alt="" className="xl:w-[400px] w-[200px] lg:w-[300px]"/>
+      <div className='h-[60%] w-[82%] border-2 border-white absolute bottom-[-5%] left-[-40%]'></div>
     </div>
     </section>
     <div>
@@ -96,7 +97,7 @@ export default function Home() {
    </div>
 
   
-   <section className="bg-slate-900 p-7 py-28" id="skills" >
+   <section className={`bg-slate-900 p-7 py-28`} id="skills" >
     <h1 className="text-center text-4xl font-bold" >My Core Skills</h1>
     <div className="flex md:w-[95vw] my-16 mx-auto justify-around items-center xl:flex-nowrap flex-wrap xl:gap-0 gap-10">
     
