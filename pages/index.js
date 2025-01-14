@@ -80,16 +80,18 @@ export default function Home() {
       <p className="xl:text-5xl text-3xl my-4">I am a passionate </p>
       <p className="xl:text-5xl text-3xl my-4"><span className="text-purple-500" ref={el}></span></p>
       <div className="flex gap-8 my-8">
-        <Link href={"/#skills"}><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Skills</Button></div></Link>
-        <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "text-white p-7 transition-all bg-purple-700 hover:bg-purple-600">Projects</Button></div></Link>
+        <Link href={"/#skills"}><div><Button className = "text-black p-7 transition-all bg-white hover:bg-purple-700 hover:text-white">Skills</Button></div></Link>
+        <Link href={"https://github.com/Amrit1100"}  target="_blank"><div><Button className = "text-black p-7 transition-all bg-white hover:bg-purple-700 hover:text-white">Projects</Button></div></Link>
       </div>
       <h2 className="text-white=600 text-2xl my-4">&lt; /&gt;</h2>
       </div>
+      
     <div data-aos="fade-up"
-     data-aos-duration="3000" className='p-4 border-2 border-white relative'>
+     data-aos-duration="3000" className='p-4 relative bg-black border-2 border-white'>
       <img src="/imageTwo.jpeg" alt="" className="xl:w-[400px] w-[200px] lg:w-[300px]"/>
       <div className='h-[60%] w-[82%] border-2 border-white absolute bottom-[-5%] left-[-40%]'></div>
     </div>
+    
     </section>
     <div>
  <img src="/cloud.png" alt="" className='opacity-10'/>

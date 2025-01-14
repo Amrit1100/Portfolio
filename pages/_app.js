@@ -8,6 +8,7 @@ import Head from 'next/head';
 export default function App({ Component, pageProps }) {
   const [login, Setlogin] = useState(false)
   const [userdetails, Setuserdetails] = useState(false)
+  const [color, Setcolor] = useState("purple")
 
   return <>
      <Head>
