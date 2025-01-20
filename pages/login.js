@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Cookies from 'js-cookie';
 import { useToast } from "@/hooks/use-toast"
 import { IoEyeSharp } from "react-icons/io5";
 import { FaEyeSlash } from "react-icons/fa";
@@ -24,6 +25,8 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
       }) 
 
       let data = await response.json()
+      let userdetails = data.userdetails
+      
       Setloading(false)
       if (data.response == "noaccount"){
         toast({ variant: "destructive",title: "No Account with this email!"})
@@ -35,13 +38,13 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
       else{
         toast({variant : "success",title : `Login Successful! Welcome ${data.userdetails.name}`})
         Setlogin(true)
+        Cookies.set("islogin", "true")
+        Cookies.set("userdetails", JSON.stringify(data.userdetails))
         Setuserdetails(data.userdetails)
-        console.log(data.userdetails)
         router.push("/")
+        
       }
     }
-        
-
   }
   return (
     <div>
@@ -54,7 +57,7 @@ const Login = ({login,Setlogin, userdetails, Setuserdetails}) => {
               <div>
                 <label className="text-white-800 text-sm mb-2 block">Email</label>
                 <div className="relative flex items-center">
-                  <input onChange = {(e)=>{Setemail(e.target.value)}} name="username" type="text" required className="w-full text-black text-sm border border-white-300 px-4 py-3 rounded-md outline-purple-600" placeholder="Enter user name" value={email} />
+                  <input onChange = {(e)=>{Setemail(e.target.value)}} name="username" type="text" required className="w-full text-black text-sm border border-white-300 px-4 py-3 rounded-md outline-purple-600" placeholder="Enter email" value={email} />
                   <svg xmlns="http://www.w3.org/2000/svg" fill="black" stroke="black" className="w-4 h-4 absolute right-4" viewBox="0 0 24 24">
                     <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                     <path d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z" data-original="#000000"></path>

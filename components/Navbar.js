@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Cookies from 'js-cookie';
 import { Button } from "./ui/button";
 import Link from "next/link";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -23,6 +24,8 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
     Setshowdialog(false)
     Setlogin(false);
     Setuserdetails();
+    Cookies.remove("islogin")
+    Cookies.remove("userdetails")
     toast({ title: "Logout Successful!" });
     setIsSheetOpen(false); // Close the sheet after logout
   };

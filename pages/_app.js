@@ -1,15 +1,25 @@
 import Navbar from "@/components/Navbar";
 import "@/styles/globals.css";
+import Cookies from 'js-cookie';
 import { Toaster } from "@/components/ui/toaster"
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import Head from 'next/head';
 
 
 export default function App({ Component, pageProps }) {
   const [login, Setlogin] = useState(false)
   const [userdetails, Setuserdetails] = useState(false)
-  const [color, Setcolor] = useState("purple")
-
+  
+  useEffect(()=>{
+    let loginstatus = Cookies.get("islogin")
+    if (loginstatus === "true"){
+      let usercookiedetails = Cookies.get("userdetails")
+      let parseduserdetails = JSON.parse(usercookiedetails)
+      console.log(parseduserdetails)
+      Setlogin(true)
+      Setuserdetails(parseduserdetails)
+    }
+  },[])
   return <>
      <Head>
         <link rel="icon" href="/favicon-image.jpg" />
