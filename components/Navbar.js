@@ -38,7 +38,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
 
   return (
     <>
-    {showdialog && <div className="fixed inset-0 flex justify-center items-center"><div className="bg-gray-700 rounded-e-md p-4 flex justify-center"><div><div>Are you sure you want to logout?</div><div className="flex space-x-3"><button className="p-2 rounded-e-md cursor-pointer bg-gray-500" onClick={()=>{Setshowdialog(false)}}>No</button> <button className="p-2 rounded-e-md cursor-pointer bg-gray-500" onClick={makeLogout}>Yes</button></div></div></div></div>}
+    {showdialog && <div className="fixed inset-0 flex justify-center items-center z-50 bg-[#0000006b]"><div className="bg-[#9a9898] rounded-md p-7 flex justify-center"><div><div className="my-4 text-2xl text-black">Are you sure you want to logout?</div><div className="flex justify-start space-x-6"><button className="p-4 hover:bg-black hover:text-white transition-all rounded-md cursor-pointer bg-white text-black " onClick={()=>{Setshowdialog(false)}}>No</button> <button className="p-4 hover:bg-black transition-all rounded-md cursor-pointer bg-white text-black hover:text-white" onClick={makeLogout}>Yes</button></div></div></div></div>}
     <div className="flex p-4 justify-between w-[95vw] border-b-2 m-auto backdrop-blur-lg sticky top-0 z-20 items-center ">
       <Link href={"/"}>
         <div className="lg:text-3xl text-xl font-bold mx-4">
