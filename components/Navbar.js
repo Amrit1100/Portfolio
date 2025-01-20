@@ -35,6 +35,11 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
   const handleLinkClick = () => {
     setIsSheetOpen(false); // Close the sheet after link click
   };
+  
+  const handleLogoutclick = ()=>{
+    handleLinkClick()
+    Setshowdialog(true)
+  }
 
   return (
     <>
@@ -122,7 +127,7 @@ const Navbar = ({ login, Setlogin, userdetails, Setuserdetails}) => {
                         <MdOutlineAccountCircle className="text-xl" />
                         <span>{userdetails.name}</span>
                       </div>
-                      <Button variant="outline" onClick={makeLogout}>
+                      <Button variant="outline" onClick={handleLogoutclick}>
                         Logout
                       </Button>
                     </div>
